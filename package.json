@@ -2,21 +2,24 @@
   "name": "opencode-skill-picker",
   "version": "0.1.0",
   "description": "OpenCode TUI plugin: pick and autocomplete skills via /slash commands and the # keybinding",
+  "author": "br4zz4",
   "license": "MIT",
   "type": "module",
+  "main": "./index.tsx",
   "files": [
     "index.tsx"
   ],
   "exports": {
-    "./tui": {
-      "types": "./index.tsx",
-      "import": "./index.tsx"
-    }
+    ".": "./index.tsx",
+    "./tui": "./index.tsx"
   },
   "keywords": [
     "opencode",
     "opencode-plugin",
     "tui",
     "skills"
-  ]
+  ],
+  "engines": {
+    "opencode": ">=1.18.0"
+  }
 }

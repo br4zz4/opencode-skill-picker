@@ -5,13 +5,13 @@
   "author": "oporpino <dev@porpi.no>",
   "license": "AGPL-3.0",
   "type": "module",
-  "main": "./index.tsx",
+  "main": "./dist/index.js",
   "files": [
-    "index.tsx"
+    "dist"
   ],
   "exports": {
-    ".": "./index.tsx",
-    "./tui": "./index.tsx"
+    ".": "./dist/index.js",
+    "./tui": "./dist/index.js"
   },
   "keywords": [
     "opencode",
@@ -24,5 +24,13 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "types": "./dist/index.js",
+  "scripts": {
+    "build": "node build.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.2"
   }
 }

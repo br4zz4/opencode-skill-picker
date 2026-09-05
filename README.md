@@ -1,4 +1,4 @@
-# @br4zz4/opencode-skill-picker
+# br4zz4-opencode-skill-picker
 
 OpenCode TUI plugin that makes skills autocompletable in the prompt:
 
@@ -8,7 +8,17 @@ OpenCode TUI plugin that makes skills autocompletable in the prompt:
 
 ## Install
 
-Clone the repo and point `tui.json` at it (a local file path is required; git URLs hit an opencode install bug):
+### Via npm
+
+```json
+{
+  "plugin": ["br4zz4-opencode-skill-picker"]
+}
+```
+
+> **Known opencode bug:** opencode installs npm plugins into `~/.cache/opencode/packages/<name>@<version>` and cannot `import` from paths containing `@`. If the npm install doesn't load, use the file path below.
+
+### Via file (workaround)
 
 ```bash
 git clone git@github.com:br4zz4/opencode-skill-picker.git ~/.qwert/vendor/opencode-skill-picker
@@ -18,7 +28,7 @@ Then add to `~/.config/opencode/tui.json`:
 
 ```json
 {
-  "plugin": ["file:///Users/<you>/.qwert/vendor/opencode-skill-picker/index.tsx"]
+  "plugin": ["file:///Users/<you>/.qwert/vendor/opencode-skill-picker/dist/index.js"]
 }
 ```
 
@@ -26,11 +36,16 @@ Restart opencode.
 
 ## Development
 
+```bash
+npm install
+npm run build
+```
+
 Run opencode against your checkout:
 
 ```json
 {
-  "plugin": ["file:///path/to/opencode-skill-picker/index.tsx"]
+  "plugin": ["file:///path/to/opencode-skill-picker/dist/index.js"]
 }
 ```
 

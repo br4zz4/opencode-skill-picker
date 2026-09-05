@@ -8,11 +8,17 @@ OpenCode TUI plugin that makes skills autocompletable in the prompt:
 
 ## Install
 
-Add the plugin to `~/.config/opencode/tui.json`:
+Clone the repo and point `tui.json` at it (a local file path is required; git URLs hit an opencode install bug):
+
+```bash
+git clone git@github.com:br4zz4/opencode-skill-picker.git ~/.qwert/vendor/opencode-skill-picker
+```
+
+Then add to `~/.config/opencode/tui.json`:
 
 ```json
 {
-  "plugin": ["github:br4zz4/opencode-skill-picker"]
+  "plugin": ["file:///Users/<you>/.qwert/vendor/opencode-skill-picker/index.tsx"]
 }
 ```
 
@@ -20,7 +26,7 @@ Restart opencode.
 
 ## Development
 
-Clone and run opencode with the local plugin:
+Run opencode against your checkout:
 
 ```json
 {
@@ -30,4 +36,4 @@ Clone and run opencode with the local plugin:
 
 ## License
 
-MIT
+AGPL-3.0 — see [LICENSE](LICENSE).

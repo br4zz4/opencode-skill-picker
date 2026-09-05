@@ -2,9 +2,17 @@ import type { TuiPlugin, TuiDialogSelectOption } from "@opencode-ai/plugin/tui"
 
 type Skill = { name: string; description?: string }
 
+type PluginOptions = {
+  slashCommands?: boolean
+}
+
 const OPENCODE_BASE_MODE = "base"
 
-const tui: TuiPlugin = async (api) => {
+const tui: TuiPlugin = async (api, options) => {
+  const config: PluginOptions = {
+    slashCommands: options?.slashCommands ?? false,
+  }
+
   let skills: Skill[] = []
   let skillsLoaded = false
 
@@ -66,6 +74,7 @@ const tui: TuiPlugin = async (api) => {
   }
 
   const registerSkillCommands = async () => {
+    if (!config.slashCommands) return
     const list = await loadSkills()
     api.command.register(() =>
       list.map((skill) => ({

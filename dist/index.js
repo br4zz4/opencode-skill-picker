@@ -1,7 +1,10 @@
 // index.tsx
 import { jsx } from "@opentui/solid/jsx-runtime";
 var OPENCODE_BASE_MODE = "base";
-var tui = async (api) => {
+var tui = async (api, options) => {
+  const config = {
+    slashCommands: options?.slashCommands ?? false
+  };
   let skills = [];
   let skillsLoaded = false;
   const loadSkills = async () => {
@@ -33,7 +36,7 @@ var tui = async (api) => {
       api.ui.toast({ message: "No skills available", variant: "warning" });
       return;
     }
-    const options = list.map((skill) => ({
+    const options2 = list.map((skill) => ({
       title: skill.name,
       value: skill.name,
       description: skill.description?.replace(/\s+/g, " ").trim(),
@@ -45,7 +48,7 @@ var tui = async (api) => {
         {
           title: "Skills",
           placeholder: "Search skills\u2026",
-          options,
+          options: options2,
           onSelect: (opt) => {
             api.ui.dialog.clear();
             void insertSkill(opt.value);
@@ -57,6 +60,7 @@ var tui = async (api) => {
     );
   };
   const registerSkillCommands = async () => {
+    if (!config.slashCommands) return;
     const list = await loadSkills();
     api.command.register(
       () => list.map((skill) => ({

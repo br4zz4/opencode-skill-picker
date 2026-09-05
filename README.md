@@ -1,4 +1,4 @@
-# opencode-skill-picker
+# @br4zz4/opencode-skill-picker
 
 OpenCode TUI plugin that makes skills autocompletable in the prompt:
 

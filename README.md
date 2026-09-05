@@ -1,4 +1,4 @@
-# br4zz4-opencode-skill-picker
+# @br4zz4/opencode-skill-picker
 
 OpenCode TUI plugin that makes skills autocompletable in the prompt:
 
@@ -12,7 +12,7 @@ OpenCode TUI plugin that makes skills autocompletable in the prompt:
 
 ```json
 {
-  "plugin": ["br4zz4-opencode-skill-picker"]
+  "plugin": ["@br4zz4/opencode-skill-picker"]
 }
 ```
 
